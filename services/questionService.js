@@ -22,9 +22,9 @@ const deleteQuestionById = async (id) => {
 
 const deleteQuestionsByTopicId = async (id) => {
     const questions = await findQuestionsByTopicId(id)
-    questions.forEach(async question => {
-        await deleteQuestionById(question.id)
-    })
+    for (let i = 0; i < questions.length; i++) {
+        await deleteQuestionById(questions[i].id)
+    }
 }
 
 const findQuestionById = async (id) => {

@@ -15,7 +15,7 @@ const countTopics = async () => {
 
 const deleteTopic = async (id) => {
     await questionService.deleteQuestionsByTopicId(id);
-    await sql`DELETE FROM topics WHERE id = ${id}`
+    await sql`DELETE FROM topics WHERE id = ${id}`;
 }
 
 const findAllTopics = async () => {

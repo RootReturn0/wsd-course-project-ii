@@ -13,11 +13,11 @@ const countAnswers = async () => {
 }
 
 const deleteAnswersByOptionId = async (id) => {
-    await sql`DELETE FROM question_answers WHERE question_answer_option_id = ${id}`
+    await sql`DELETE FROM question_answers WHERE question_answer_option_id = ${id}`;
 }
 
 const deleteAnswersByQuestionId = async (id) => {
-    await sql`DELETE FROM question_answers WHERE question_id = ${id}`
+    await sql`DELETE FROM question_answers WHERE question_id = ${id}`;
 }
 
 export { addAnswer, countAnswers, deleteAnswersByOptionId, deleteAnswersByQuestionId }
