@@ -1,0 +1,41 @@
+<% layout("./layouts/layout.eta") %>
+
+<h1>Main Page</h1>
+
+<div>
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link" href="/auth/register">Register</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/auth/login">Login</a>
+    </li>
+  </ul>
+</div>
+
+<div class="m-3">
+
+  <p class="font-italic">The application provides a list of topics and allows creating multiple-choice questions into those topics that are then answered by self and others.</p>
+
+  <h2>Statistics</h2>
+  <ul class="list-group">
+    <li class="list-group-item list-group-item-light">
+      <div class="row">
+        <div class="col-3">Total topics: </div>
+        <div class="col-9"><%= it.numTopics%></div>
+      </div>
+    </li>
+    <li class="list-group-item list-group-item-light">
+      <div class="row">
+        <div class="col-3">Total questions: </div>
+        <div class="col-9"><%= it.numQuestions%></div>
+      </div>
+    </li>
+    <li class="list-group-item list-group-item-light">
+      <div class="row">
+        <div class="col-3">Total question answers: </div>
+        <div class="col-9"><%= it.numAnswers%></div>
+      </div>
+    </li>
+  </ul>
+</div>

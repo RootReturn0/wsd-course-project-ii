@@ -1,0 +1,42 @@
+<% layout("../../layouts/layout.eta") %>
+
+<h1><%= it.topic.name %></h1>
+
+<div class="m-3">
+  
+  <h2>Add A Question</h2>
+
+  <% if (it.validationErrors) { %>
+  <div class="mt-3 mb-3">
+    <ul class="list-group">
+      <% Object.keys(it.validationErrors).forEach((attribute) => { %>
+      <% Object.values(it.validationErrors[attribute]).forEach((err) => { %>
+      <li class="list-group-item list-group-item-danger"><%= err %></li>
+      <% }); %>
+      <% }); %>
+    </ul>
+  </div>
+  <% } %>
+
+  <form method="POST" action="/topics/<%= it.topic.id %>/questions">
+    <div class="form-group">
+      <label for="question_text">Question Text</label>
+      <textarea class="form-control" id="question_text" name="question_text" aria-describedby="questionHelp" placeholder="Enter question"><%= it.questionText ? it.questionText : ""%></textarea>
+      <small id="questionHelp" class="form-text text-muted">The question must contain at least one character.</small>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+</div>
+
+<div class="m-3">
+  <h2>Question List</h2>
+
+  <ul class="list-group">
+    <% it.questions.forEach((question) => { %>
+    <li class="list-group-item">
+      <a href="/topics/<%= question.topic_id %>/questions/<%= question.id %>"><%= question.question_text %></a>
+    </li>
+    <% }); %>
+  </ul>
+</div>

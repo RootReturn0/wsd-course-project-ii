@@ -1,0 +1,29 @@
+<% layout("../../layouts/layout.eta") %>
+
+<h1><%= it.topic.name%></h1>
+
+<div class="m-3">
+  <p><%= it.question.question_text %></p>
+  <% if (it.options && it.options.length ) { %>
+  <ul class="list-group">
+    <% it.options.forEach((option) => { %>
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-10">
+          <%= option.option_text %>
+        </div>
+        <div class="col-2">
+          <form class="float-right" method="POST" action="/quiz/<%= it.question.topic_id %>/questions/<%= it.question.id %>/options/<%= option.id %>">
+            <button id="chooseOption<%= option.id %>" type="submit" class="btn btn-sm btn-primary">Choose</button>
+          </form>
+        </div>
+      </div>
+    </li>
+    <% }); %>
+  </ul>
+  <% } else {%>
+  <p class="text-muted">No options so far.</p>
+  <a href="/quiz/<%= it.question.topic_id %>">Next question</a>
+  <% } %>
+
+</div>

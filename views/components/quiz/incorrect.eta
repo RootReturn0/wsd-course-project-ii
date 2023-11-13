@@ -1,0 +1,17 @@
+<% layout("../../layouts/layout.eta") %>
+
+<h1>Result</h1>
+
+<p>Incorrect!</p>
+
+<ul class="list-group">
+  <p>The correct option(s): </p>
+  <% it.options.forEach((option) => { %>
+  <li class="list-group-item">
+    <%= option.option_text %>
+  </li>
+  <% }); %>
+</ul>
+<div class="mt-3">
+<a href="/quiz/<%= it.question.topic_id %>">Next question</a>
+</div>
