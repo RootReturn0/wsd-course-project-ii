@@ -17,7 +17,7 @@ const countQuestions = async () => {
 const deleteQuestionById = async (id) => {
     await answerService.deleteAnswersByQuestionId(id);
     await optionService.deleteOptionsByQuestionId(id);
-    await sql`DELETE FROM questions WHERE id = ${id}`
+    await sql`DELETE FROM questions WHERE id = ${id}`;
 }
 
 const deleteQuestionsByTopicId = async (id) => {
